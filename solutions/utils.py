@@ -11,6 +11,5 @@ class Timer:
         return time.perf_counter() - self.start
         
 
-
-
-    
+def xor(a, b):
+    return (a or b) and not (a and b)

@@ -47,6 +47,16 @@ def pi(vals):
 def xor(a, b):
     return (a or b) and not (a and b)
 
+def clamp(val, m, M):
+    if val < m:
+        return m
+    elif val > M:
+        return M
+    else:
+        return val
+
+def in_bounds(arr, i, j):
+    return i >= 0 and j >= 0 and i < len(arr) and j < len(arr[0])
 
 def fibb_numbers(n):
     output = [1, 1]

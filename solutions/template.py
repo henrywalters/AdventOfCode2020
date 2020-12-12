@@ -14,7 +14,11 @@ timer = Timer()
 
 # Write your code here
 
+lines = []
 result = 0
+
+def get_the_bread():
+    print(lines)
 
 with open('files/day{day}.txt'.format(day=DAY), 'r') as f:
     lines = [l.strip() for l in f.readlines()]

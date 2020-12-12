@@ -1,4 +1,8 @@
 import time
+import math
+
+def deg2rad(deg):
+    return deg * math.pi / 180
 
 class Timer:
     def __init__(self):
@@ -19,6 +23,16 @@ class Vec2:
     def add(self, vec):
         self.x += vec.x
         self.y += vec.y
+
+    def rotate(self, deg):
+        print(deg)
+        x = math.cos(deg) * self.x - math.sin(deg) * self.y
+        y = math.sin(deg) * self.x + math.cos(deg) * self.y
+        self.x = x
+        self.y =y
+
+    def manhattan_distance(self):
+        return abs(self.x) + abs(self.y)
 
     def __str__(self):
         return "[{x}, {y}]".format(x=self.x, y=self.y)

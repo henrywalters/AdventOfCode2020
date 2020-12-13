@@ -4,6 +4,39 @@ import math
 def deg2rad(deg):
     return deg * math.pi / 180
 
+def min_tuple_list(tuples):
+    m = None
+    for t in tuples:
+        if m is None or t[0] < m[0]:
+            m = t
+    return m
+
+
+def chinese_remainder_theorem(items):
+    """each item is a tuple, idx 0 = a and idx 1 = ni"""
+    N = pi([x[1] for x in items])
+    Y = [int(N / n[1]) for n in items]
+    Z = [mul_inv(Y[i], items[i][1])  for i in range(len(items))]
+    print(N)
+    print(Z)
+    print(Y)
+    print(items)
+    x = [Z[i] * Y[i] * items[i][0] for i in range(len(items))]
+    print(x)
+    return sum(x) % N
+
+def mul_inv(a, b):
+    b0 = b
+    x0, x1 = 0, 1
+    if b == 1: return 1
+    while a > 1:
+        q = a // b
+        a, b = b, a%b
+        x0, x1 = x1 - q * x0, x0
+    if x1 < 0: x1 += b0
+    return x1
+
+
 class Timer:
     def __init__(self):
         self.start = time.perf_counter()

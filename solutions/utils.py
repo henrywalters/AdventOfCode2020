@@ -12,6 +12,24 @@ def min_tuple_list(tuples):
     return m
 
 
+class Range:
+    def __init__(self, m, M):
+        self.min = m
+        self.max = M
+
+    def contains(self, val):
+        return self.min <= val <= self.max
+
+    def get_list(self):
+        l = []
+        for i in range(self.min, self.max + 1):
+            l.append(i)
+        return l
+
+    def __str__(self):
+        return '[{m}, {M}]'.format(m=self.min, M=self.max)
+
+
 def chinese_remainder_theorem(items):
     """each item is a tuple, idx 0 = a and idx 1 = ni"""
     N = pi([x[1] for x in items])

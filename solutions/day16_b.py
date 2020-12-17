@@ -74,6 +74,8 @@ def is_valid_ticket(ticket):
     return valid_ticket
 
 
+# basically like a suduko solver. start by working finding rows that only have 1 possible 
+# idx then narrow down the results from there.
 def parse_rule_idx():
     rc = len(rules)
     found = []
@@ -91,12 +93,10 @@ def parse_rule_idx():
                 if idx_matches_rule:
                     rule_matches.append((rule, i))
 
-            print(rule, i, len(rule_matches))
             unfound_matches = []
             for match in rule_matches:
                 if match[1] not in found:
                     unfound_matches.append(match)
-            print(unfound_matches)
             if len(unfound_matches) == 1:
                 rule_idx[rule] = unfound_matches[0][1]
                 found.append(unfound_matches[0][1])

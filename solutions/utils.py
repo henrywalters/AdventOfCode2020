@@ -12,6 +12,16 @@ def min_tuple_list(tuples):
     return m
 
 
+def print_list(L):
+    for l in L:
+        print(l)
+
+
+def print_dict(D):
+    for k in D:
+        print("{k} = {v}".format(k=k, v=D[k]))
+
+
 class Range:
     def __init__(self, m, M):
         self.min = m

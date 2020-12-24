@@ -85,12 +85,19 @@ class Vec2:
         self.x += vec.x
         self.y += vec.y
 
+    def add(self, x, y):
+        self.x += x
+        self.y += y
+
     def rotate(self, deg):
         print(deg)
         x = math.cos(deg) * self.x - math.sin(deg) * self.y
         y = math.sin(deg) * self.x + math.cos(deg) * self.y
         self.x = x
         self.y =y
+
+    def get_tuple(self):
+        return (self.x, self.y)
 
     def manhattan_distance(self):
         return abs(self.x) + abs(self.y)
